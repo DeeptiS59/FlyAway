@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Passenger Details</title>
+</head>
+<body>
+<form action="PaymentGateway.html" method="get">
+<div>
+<div id="Pdetails">
+<label for="name">Enter the name of passenger</label>
+<input type="text" name="passengername" required><br>
+<label for="age">Enter the age</label>
+<input type="number" name="age" required><br>
+<label for="age">Choose your gender-</label><br>
+<label for="female">Female</label>
+<input type="radio" name="gender"><br>
+<label for="male">Male</label>
+<input type="radio" name="gender"><br>
+<label for="none">Rather Not Mention</label>
+<input type="radio" name="gender"><br>
+<label for="food">Would you like to order a meal</label>
+<select>
+<option> yes</option>
+<option> no</option>
+</select><hr>
+ </div>
+</div>
+<input type="Submit" value="Click here to Enter the payment gateway">
+</form>
+<script type="text/javascript">
+var q=window.location.search;
+var p= new URLSearchParams(q);
+var noOfTickets=p.get("tickets");
+var node=document.getElementById("Pdetails");
+for(i=1;i<noOfTickets;i++){
+	copy = node.cloneNode(true);
+    node.parentNode.appendChild(copy);
+    copy.querySelectorAll('input[type="radio"]').forEach(item => {item.name=item.name+i});
+}
+</script>
+</body>
+</html>
